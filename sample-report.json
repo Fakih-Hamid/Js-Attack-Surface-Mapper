@@ -1,0 +1,102 @@
+{
+  "endpoints": [
+    {
+      "url": "post",
+      "domain": "unknown",
+      "path": "post",
+      "scheme": "http",
+      "potential_impact": "public",
+      "origin": "examples\\sample.js",
+      "graphql": true
+    },
+    {
+      "url": "https://api.example.com/v1/users?id=123&debug=true",
+      "domain": "api.example.com",
+      "path": "/v1/users",
+      "scheme": "https",
+      "potential_impact": "idor-candidate",
+      "origin": "examples\\sample.js",
+      "graphql": true
+    },
+    {
+      "url": "https://api.example.com/v1/admin/impersonate",
+      "domain": "api.example.com",
+      "path": "/v1/admin/impersonate",
+      "scheme": "https",
+      "potential_impact": "auth-required",
+      "origin": "examples\\sample.js",
+      "graphql": true
+    },
+    {
+      "url": "wss://ws.example.com/socket",
+      "domain": "ws.example.com",
+      "path": "/socket",
+      "scheme": "wss",
+      "potential_impact": "public",
+      "origin": "examples\\sample.js",
+      "graphql": true
+    }
+  ],
+  "parameters": [
+    {
+      "name": "id",
+      "value": "123",
+      "location": "query",
+      "endpoint": "https://api.example.com/v1/users?id=123&debug=true",
+      "origin": "examples\\sample.js"
+    },
+    {
+      "name": "debug",
+      "value": "true",
+      "location": "query",
+      "endpoint": "https://api.example.com/v1/users?id=123&debug=true",
+      "origin": "examples\\sample.js"
+    },
+    {
+      "name": "id",
+      "value": "123",
+      "location": "query-fragment",
+      "endpoint": null,
+      "origin": "examples\\sample.js"
+    },
+    {
+      "name": "debug",
+      "value": "true",
+      "location": "query-fragment",
+      "endpoint": null,
+      "origin": "examples\\sample.js"
+    },
+    {
+      "name": "apiKey",
+      "value": "AKIA_TEST_KEY_1234567890",
+      "location": "query-fragment",
+      "endpoint": null,
+      "origin": "examples\\sample.js"
+    }
+  ],
+  "secrets": [
+    {
+      "type": "jwt",
+      "value": "api.example.com/v1/users",
+      "origin": "examples\\sample.js"
+    },
+    {
+      "type": "jwt",
+      "value": "api.example.com/v1/admin/impersonate",
+      "origin": "examples\\sample.js"
+    },
+    {
+      "type": "jwt",
+      "value": "ws.example.com/socket",
+      "origin": "examples\\sample.js"
+    },
+    {
+      "type": "authorization-header",
+      "value": "Authorization: \"Bearer test-token-abc123",
+      "origin": "examples\\sample.js"
+    }
+  ],
+  "metadata": {
+    "total_sources": 1
+  }
+}
